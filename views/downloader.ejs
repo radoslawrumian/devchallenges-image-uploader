@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/uploader.css" />
+  </head>
+  <body>
+    <div id="rect" style="height: 267px">
+      <div id="inside">
+        <div id="imagebox"></div>
+
+        <br />
+        <a id="downloadlink" href="">
+        <input type="button" id="download" value="Download" />
+      </a>
+
+      </div>
+    </div>
+    <script>
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+
+
+      document.getElementById("imagebox").style.backgroundImage =
+        "url('http://localhost:3000/h/<%= id %>')";
+
+      let filename = getCookie("filename");
+
+      document.getElementById('downloadlink').href = document.URL.split('/')[0] + '//' + document.URL.split('/')[2] + '/g/<%= id %>';
+      document.getElementById('downloadlink').download = filename
+
+    </script>
+  </body>
+</html>

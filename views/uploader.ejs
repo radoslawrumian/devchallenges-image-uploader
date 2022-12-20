@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="static/uploader.css" />
+  </head>
+  <body>
+    <div id="rect">
+      <div id="inside">
+        <div class="bigtext">Upload your image</div>
+        <div id="smalltext">File should be Jpeg, Png...</div>
+        <div id="box">
+          <img id='image1' src=static/image.svg>
+          <div id="textinside">Drag & Drop your image here</div>
+          <div id="droparena"></div>
+        </div>
+        <div id="smalltext2">Or</div>
+
+        <input
+          type="button"
+          id="uploadbutton"
+          class="button"
+          value="Choose a file"
+        />
+      </div>
+    </div>
+
+    <script src="static/animationdrag.js"></script>
+    <script src="static/uploader.js"></script>
+    <footer>
+      Created by
+      <a href="https://devchallenges.io/portfolio/radoslawrumian"
+        >Radosław Rumian</a
+      >
+      - devChallenges.io
+    </footer>
+  </body>
+</html>
