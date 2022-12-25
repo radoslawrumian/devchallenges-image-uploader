@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/static/uploader.css" />
+    <link rel="icon" type="image/x-icon" href="/static/favicon.png">
+
   </head>
   <body>
     <div id="rect" style="height: 267px">
@@ -39,7 +41,7 @@
 
 
       document.getElementById("imagebox").style.backgroundImage =
-        "url('http://localhost:3000/h/<%= id %>')";
+        "url('" + document.URL.split('/')[0] + '//' + document.URL.split('/')[2] + '/h/<%= id %>' + "')";
 
       let filename = getCookie("filename");
 

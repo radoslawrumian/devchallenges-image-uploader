@@ -2,11 +2,31 @@ const button = document.getElementById("uploadbutton");
 const inside = document.getElementById("inside");
 const select = document.createElement("INPUT");
 document.cookie = "id = 0";
-document.addEventListener('contextmenu', event => event.preventDefault());
 
 document.cookie = "error = 0";
+
+
+function unsecuredCopyToClipboard(text) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+  } catch (err) {
+    console.error('Unable to copy to clipboard', err);
+  }
+  document.body.removeChild(textArea);
+}
+
+
+
 const bigtext = document.getElementsByClassName("bigtext")[0];
 select.setAttribute("type", "file");
+
+
+
 
 button.addEventListener("click", () => {
   select.click();
@@ -145,9 +165,8 @@ const idSuccess = (id) => {
       document.getElementById('divinside').innerHTML = document.URL + "i/" + readCookie('id'); 
 
       document.getElementById('buttoncopy').addEventListener('click', ()=>{
-        let copylink =  document.getElementById('divinside').innerHTML
-
-        navigator.clipboard.writeText(copylink)
+   
+        unsecuredCopyToClipboard(document.getElementById('divinside').innerHTML)
         
 
         
