@@ -2,9 +2,17 @@ const path = require("path");
 
 const express = require("express");
 const morgan = require("morgan");
+const http = require('http');
 
+const fs = require('fs')
 
 const app = express();
+
+
+
+
+const httpServer = http.createServer(app);
+
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -27,4 +35,7 @@ app.use(uploaderController);
 
 console.log(path.join(__dirname, "uploads"));
 
-app.listen();
+
+httpServer.listen(80);
+
+
